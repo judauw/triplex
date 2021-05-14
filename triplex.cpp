@@ -12,8 +12,10 @@ int main() {
     int c = 7;
 
     int sum = a + b + c;
+    int prod = a * b * c;
 
-    std::cout << sum;
+    std::cout << sum << std::endl;
+    std::cout << prod;
 
     return 0;
 }
