@@ -3,7 +3,7 @@
 
 void PrintIntroduction(int LoopNumber, int WonTimes)
 {
-    std::cout << "\n\nThis is loop: " << LoopNumber;
+    std::cout << "\n\nThis is loop: " << LoopNumber << "\nCurrentDifficulty: " << WonTimes;
 
     if (LoopNumber > 1)
     {
@@ -29,9 +29,9 @@ int GuessNumbers(int LoopNumber, int WonTimes) {
     std::cout << "\nYou're the dumbest person on earth and need to enter the correct code to collect your booze \n";
     std::cout << "Enter the correct code to access the tavern... \n";
 
-    int CodeA = rand() % 10 + 1;
-    int CodeB = rand() % 10 + 1;
-    int CodeC = rand() % 10 + 1;
+    int CodeA = rand() % 10 + (WonTimes * 2);
+    int CodeB = rand() % 10 + (WonTimes * 2);
+    int CodeC = rand() % 10 + (WonTimes * 2);
 
     int CodeSum = CodeA + CodeB + CodeC;
     int CodeProd = CodeA * CodeB * CodeC;
@@ -40,6 +40,7 @@ int GuessNumbers(int LoopNumber, int WonTimes) {
     std::cout << "There are 3 numbers in the code";
     std::cout << "\nThe code adds up to: " << CodeSum;
     std::cout << "\nThe code multiply to give: " << CodeProd << std::endl;
+    std::cout << CodeA << " " << CodeB << " " << CodeC;
 
     int PlayerGuessA, PlayerGuessB, PlayerGuessC;
     std::cin >> PlayerGuessA >> PlayerGuessB >> PlayerGuessC;
@@ -78,10 +79,15 @@ int main() {
     
     while ( CurrentGameLoop <= TotalGameLoop )
     {
+        int TempDifficulty = WonTimes;
         WonTimes += GuessNumbers(CurrentGameLoop, WonTimes);
-        std::cin.clear();
-        std::cin.ignore();
-        ++CurrentGameLoop;
+        std::cin.clear(); //Clear errors
+        std::cin.ignore(); //Discard cin buffer
+        if (TempDifficulty < WonTimes)
+        {
+            CurrentGameLoop++;    
+        }
+
     }
 
     return 0;
