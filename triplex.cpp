@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 
 void PrintIntroduction(int LoopNumber, int WonTimes)
 {
@@ -28,9 +29,9 @@ int GuessNumbers(int LoopNumber, int WonTimes) {
     std::cout << "\nYou're the dumbest person on earth and need to enter the correct code to collect your booze \n";
     std::cout << "Enter the correct code to access the tavern... \n";
 
-    int CodeA = 4;
-    int CodeB = 3;
-    int CodeC = 2;
+    int CodeA = rand() % 10 + 1;
+    int CodeB = rand() % 10 + 1;
+    int CodeC = rand() % 10 + 1;
 
     int CodeSum = CodeA + CodeB + CodeC;
     int CodeProd = CodeA * CodeB * CodeC;
@@ -78,6 +79,8 @@ int main() {
     while ( CurrentGameLoop <= TotalGameLoop )
     {
         WonTimes += GuessNumbers(CurrentGameLoop, WonTimes);
+        std::cin.clear();
+        std::cin.ignore();
         ++CurrentGameLoop;
     }
 
