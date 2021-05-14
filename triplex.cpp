@@ -33,6 +33,28 @@ int main() {
 
     int GuessSum = PlayerGuessA + PlayerGuessB + PlayerGuessC;
     int GuessProd = PlayerGuessA * PlayerGuessB * PlayerGuessC;
+    bool BoolSum = false;
+    bool BoolProd = false;
+
+    if (GuessSum == CodeSum)
+    {
+        std::cout << "GuessSum is OK, good job! \n";
+        BoolSum = true;
+    }
+
+    if (GuessProd == CodeProd)
+    {
+        std::cout << "GuessProd is OK, good job! \n";
+        BoolProd = true;
+    }
+
+    if ( BoolProd && BoolSum )
+    {
+        std::cout << "Good job boyo! Now to the next level!";
+    } else
+    {
+        std::cout << "You suck ballz, try again!";
+    }
     
 
     return 0;
