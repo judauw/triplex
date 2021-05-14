@@ -30,7 +30,10 @@ int main() {
     std::cin >> PlayerGuessA;
     std::cin >> PlayerGuessB;
     std::cin >> PlayerGuessC;
-    std::cout << "You entered: " << PlayerGuessA << PlayerGuessB << PlayerGuessC;
+
+    int GuessSum = PlayerGuessA + PlayerGuessB + PlayerGuessC;
+    int GuessProd = PlayerGuessA * PlayerGuessB * PlayerGuessC;
+    
 
     return 0;
 }
