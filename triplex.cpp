@@ -1,12 +1,31 @@
 #include <iostream>
 
-bool GuessNumbers() {
-    return true;
+void PrintIntroduction(int LoopNumber, int WonTimes)
+{
+    std::cout << "\n\nThis is loop: " << LoopNumber;
+
+    if (LoopNumber > 1)
+    {
+        std::cout << "\nYou've already won: " << WonTimes << " times.";  
+    }
+    
+    std::cout<< R"(
+                             88                                      
+                             88                                      
+                             88                                      
+        ,adPPYba, ,adPPYYba, 88  ,adPPYba,   ,adPPYba,  8b,dPPYba,   
+        I8[    "" ""     `Y8 88 a8"     "8a a8"     "8a 88P'   `"8a  
+         `"Y8ba,  ,adPPPPP88 88 8b       d8 8b       d8 88       88  
+        aa    ]8I 88,    ,88 88 "8a,   ,a8" "8a,   ,a8" 88       88  
+        `"YbbdP"' `"8bbdP"Y8 88  `"YbbdP"'   `"YbbdP"'  88       88  
+    )";
 }
 
-int main() {
+int GuessNumbers(int LoopNumber, int WonTimes) {
+    PrintIntroduction(LoopNumber, WonTimes);
+    
     // General description
-    std::cout << "You're the dumbest person on earth and need to enter the correct code to collect your booze \n";
+    std::cout << "\nYou're the dumbest person on earth and need to enter the correct code to collect your booze \n";
     std::cout << "Enter the correct code to access the tavern... \n";
 
     int CodeA = 4;
@@ -19,7 +38,7 @@ int main() {
     // Print sum and product
     std::cout << "There are 3 numbers in the code";
     std::cout << "\nThe code adds up to: " << CodeSum;
-    std::cout << "\nThe code multiply to give: " << CodeProd;
+    std::cout << "\nThe code multiply to give: " << CodeProd << std::endl;
 
     int PlayerGuessA, PlayerGuessB, PlayerGuessC;
     std::cin >> PlayerGuessA >> PlayerGuessB >> PlayerGuessC;
@@ -31,24 +50,36 @@ int main() {
 
     if (GuessSum == CodeSum)
     {
-        std::cout << "GuessSum is OK, good job! \n";
         BoolSum = true;
     }
 
     if (GuessProd == CodeProd)
     {
-        std::cout << "GuessProd is OK, good job! \n";
         BoolProd = true;
     }
 
     if ( BoolProd && BoolSum )
     {
         std::cout << "Good job boyo! Now to the next level!";
+        return 1;
     } else
     {
         std::cout << "You suck ballz, try again!";
+        return 0;
     }
+}
+
+int main() {
+    // Initialize game options
+    int CurrentGameLoop = 1;
+    int TotalGameLoop = 5;
+    int WonTimes = 0;
     
+    while ( CurrentGameLoop <= TotalGameLoop )
+    {
+        WonTimes += GuessNumbers(CurrentGameLoop, WonTimes);
+        ++CurrentGameLoop;
+    }
 
     return 0;
 }
