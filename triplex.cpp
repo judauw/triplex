@@ -6,13 +6,9 @@ int main() {
     std::cout << "Enter the correct code to access the tavern...";
     std::cout << std::endl;
 
-
-    int a = 4;
+    const int a = 4;
     int b = 3;
     int c = 2;
-
-
-    a = 7;
 
     int sum = a + b + c;
     int prod = a * b * c;
