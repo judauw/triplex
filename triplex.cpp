@@ -29,9 +29,9 @@ int GuessNumbers(int LoopNumber, int WonTimes) {
     std::cout << "\nYou're the dumbest person on earth and need to enter the correct code to collect your booze \n";
     std::cout << "Enter the correct code to access the tavern... \n";
 
-    int CodeA = rand() % 10 + (WonTimes * 2);
-    int CodeB = rand() % 10 + (WonTimes * 2);
-    int CodeC = rand() % 10 + (WonTimes * 2);
+    int CodeA = rand() % 4 + (WonTimes * 2);
+    int CodeB = rand() % 4 + (WonTimes * 2);
+    int CodeC = rand() % 4 + (WonTimes * 2);
 
     int CodeSum = CodeA + CodeB + CodeC;
     int CodeProd = CodeA * CodeB * CodeC;
