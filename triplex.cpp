@@ -11,7 +11,7 @@ int main() {
     int b = 5;
     int c = 7;
 
-    std::cout << a;
+    std::cout << a + b + c;
 
     return 0;
 }
