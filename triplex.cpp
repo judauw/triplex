@@ -77,7 +77,7 @@ int main() {
     int TotalGameLoop = 5;
     int WonTimes = 0;
     
-    while ( CurrentGameLoop <= TotalGameLoop )
+    while (CurrentGameLoop <= TotalGameLoop)
     {
         int TempDifficulty = WonTimes;
         WonTimes += GuessNumbers(CurrentGameLoop, WonTimes);
