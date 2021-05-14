@@ -8,8 +8,11 @@ int main() {
 
 
     int a = 4;
-    int b = 5;
-    int c = 7;
+    int b = 3;
+    int c = 2;
+
+
+    a = 7;
 
     int sum = a + b + c;
     int prod = a * b * c;
